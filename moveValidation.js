@@ -1,6 +1,7 @@
 const newCoordinate = require('./newCoordinate');
 
-
+//validates that the move will not take you out of bounds
+// Will return true if it is a legal move, and false if you go out of bounds
 function moveValidation(fieldObject, Dir){
     
     const newPos = newCoordinate(fieldObject, Dir);
@@ -9,10 +10,14 @@ function moveValidation(fieldObject, Dir){
     //Need to grab value of the maximum x value on grid
     const maxX = fieldObject.field.length;
     const maxY = fieldObject.field[0].length;
-    console.log(maxX + " " + maxY);
+    
     if(x < 0 | x >= maxX | y < 0 | y >= maxY){
         console.log('You move will put you out of bounds');
+        return false;
+    }else {
+        return true;
     }
+
 }
 
 
