@@ -11,9 +11,9 @@ function directionPromise(fieldObject){
             readline.question('Which Direction Would You like to Go?', Dir =>{
             const result = validate(Dir);
             
-            moveValidation(fieldObject);
+            
             if(result===true){
-                
+                moveValidation(fieldObject, Dir);
                 resolve(Dir);
             }else {
                 ask();
