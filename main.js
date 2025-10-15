@@ -28,6 +28,9 @@ class Field {
   set startPos(newPos){
     this._startPos = newPos;
   }
+  get field(){
+    return this._field;
+  }
 
 
 
