@@ -10,6 +10,7 @@ function directionPromise(){
             readline.question('Which Direction Would You like to Go?', Dir =>{
             const result = validate(Dir);
             if(result===true){
+                
                 resolve(Dir);
             }else {
                 ask();
@@ -18,12 +19,14 @@ function directionPromise(){
 }
 
         ask();
+        
     });
 }
 
 async function directionPrompt(){
     const direction = await directionPromise();
-    console.log(`You chose  ${direction} as your direction`);
+    console.log( 'you chose '+ direction);
+    return direction;
 }
 
 module.exports=directionPrompt;

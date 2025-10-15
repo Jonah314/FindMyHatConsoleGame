@@ -22,6 +22,14 @@ class Field {
     this._winPos = winPos;
     this._holePos = holePos;
   }
+  get startPos(){
+    return this._startPos;
+  }
+  set startPos(newPos){
+    this._startPos = newPos;
+  }
+
+
 
   print() {
     this._field.forEach(row => {
@@ -40,14 +48,13 @@ const myField = new Field([
 [[0,2],[1,1]]
 );
 
+async function gameLoop(){
+    
+    console.log(Intro);
+    myField.print();
+    //const direction = await directionPrompt();
+    //console.log("its working" + direction);
+    console.log(myField.startPos);
+}
 
-
-myField.print();
-console.log(Intro);
-// directionPrompt recieves a direction to move in, and return that direction
-directionPrompt();
-
-
-//Current issue, your console.log you pressed, is appearing directly after the direction prompt, 
-// so you dont print out the actual direction you print out undefined, Look up way to await for the 
-// direction process to finnish.
+gameLoop();
