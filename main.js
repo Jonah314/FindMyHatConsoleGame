@@ -2,7 +2,7 @@ const prompt = require('prompt-sync')({sigint: true});
 
 
 const directionPrompt = require('./directionPrompt');
-
+//const movePosition = require('/movePosition');
 
 
 const hat = '^';
@@ -52,8 +52,8 @@ async function gameLoop(){
     
     console.log(Intro);
     myField.print();
-    //const direction = await directionPrompt();
-    //console.log("its working" + direction);
+    const direction = await directionPrompt(myField);
+    console.log("its working" + direction);
     console.log(myField.startPos);
 }
 
