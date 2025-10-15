@@ -9,11 +9,11 @@ function directionPromise(fieldObject){
     return new Promise ((resolve)=> {
         function ask(){
             readline.question('Which Direction Would You like to Go?', Dir =>{
-            const result = validate(Dir);
+            const validateResult = validate(Dir);
+            const moveValidateResult = moveValidation(fieldObject, Dir);
             
-            
-            if(result===true){
-                moveValidation(fieldObject, Dir);
+            if(validateResult===true & moveValidateResult === true){
+                console.log('congrats both validations passed')
                 resolve(Dir);
             }else {
                 ask();
