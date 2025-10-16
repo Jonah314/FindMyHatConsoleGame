@@ -35,6 +35,9 @@ class Field {
   get winPos(){
     return this._winPos;
   }
+  get holePos(){
+    return this._holePos;
+  }
 
 
   print() {
@@ -74,7 +77,6 @@ async function gameLoop(){
         }
     }
 }
-    // To Do list: need to create a module to change the map of the game
-    // - need to print the map in the befining of every loop
+    
 
 gameLoop();
