@@ -1,51 +1,14 @@
 const prompt = require('prompt-sync')({sigint: true});
-
+const Field = require('./Field');
 
 const { directionPrompt, closeInput } = require('./directionPrompt');
 const movePosition = require('./movePosition');
 const updateField = require('./updateField');
+const generateField = require('./generateField');
 
 
-const hat = '^';
-const hole = 'O';
-const fieldCharacter = '░';
-const pathCharacter = '*';
 
 const Intro = '               Welcome to Find My Hat !!!\n     Your Character is represented by the asterisk * Character \n     To Play the Game navigate to your hat ^ and Avoid falling into any holes O \n     To Move: \n          W = Up \n          A = Left \n          S = Down  \n          D = Right'  
-
-
-
-class Field {
- 
- constructor(field, startPos, winPos, holePos) {
-    this._field = field;
-    this._startPos = startPos;
-    this._winPos = winPos;
-    this._holePos = holePos;
-  }
-  get startPos(){
-    return this._startPos;
-  }
-  set startPos(newPos){
-    this._startPos = newPos;
-  }
-  get field(){
-    return this._field;
-  }
-  get winPos(){
-    return this._winPos;
-  }
-  get holePos(){
-    return this._holePos;
-  }
-
-
-  print() {
-    this._field.forEach(row => {
-      console.log(row.join('')); // join turns ['*','░','O'] into '*░O'
-    });
-  }
-}
 
 const myField = new Field([
   ['*', '░', 'O'],
@@ -57,11 +20,15 @@ const myField = new Field([
 [[0,2],[1,1]]
 );
 
+
+
 async function gameLoop(){
     let gameContinue = true;
     console.log(Intro);
     myField.print();
-    
+   
+
+
     while(gameContinue){
     const direction = await directionPrompt(myField);
     const gameResults = movePosition(direction, myField); 

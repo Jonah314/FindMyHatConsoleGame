@@ -16,8 +16,7 @@ function newCoordinate(fieldObject, Dir){
         // The y value should increase by 1 since we are moving right
         fieldObject.startPos = [x, y+1];
     }
-    
-    console.log( 'your new position is ' + fieldObject.startPos + ' !!!');
+   
     const newPos = fieldObject.startPos;
     return newPos;
 }
