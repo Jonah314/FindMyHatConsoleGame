@@ -13,7 +13,6 @@ function directionPromise(fieldObject){
             const moveValidateResult = moveValidation(fieldObject, Dir);
             
             if(validateResult===true & moveValidateResult === true){
-                console.log('congrats both validations passed')
                 resolve(fieldObject.startPos);
             }else {
                 ask();
@@ -28,7 +27,6 @@ function directionPromise(fieldObject){
 
 async function directionPrompt(fieldObject){
     const direction = await directionPromise(fieldObject);
-    console.log( 'you chose '+ direction);
     return direction;
 }
 

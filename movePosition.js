@@ -2,8 +2,6 @@ const newCoordinate = require('./newCoordinate');
 
 //returns loopLogic to continue or end game
 function movePosition(newPosition, myField){
-    console.log(myField.winPos);
-    console.log(newPosition);
     if(newPosition[0] === myField.winPos[0] &&
        newPosition[1]=== myField.winPos[1]
     ){

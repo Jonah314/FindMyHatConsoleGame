@@ -61,7 +61,9 @@ async function gameLoop(){
     while(gameContinue){
     const direction = await directionPrompt(myField);
     const gameResults = movePosition(direction, myField); 
-    console.log(gameResults);
+    //Change Field Object to reflect changes
+    myField.print();
+    
 
       if (!gameResults) { // cleaner check
             console.log("Game Over!");
@@ -70,5 +72,7 @@ async function gameLoop(){
         }
     }
 }
+    // To Do list: need to create a module to change the map of the game
+    // - need to print the map in the befining of every loop
 
 gameLoop();
