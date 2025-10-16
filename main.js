@@ -3,6 +3,7 @@ const prompt = require('prompt-sync')({sigint: true});
 
 const { directionPrompt, closeInput } = require('./directionPrompt');
 const movePosition = require('./movePosition');
+const updateField = require('./updateField');
 
 
 const hat = '^';
@@ -62,6 +63,7 @@ async function gameLoop(){
     const direction = await directionPrompt(myField);
     const gameResults = movePosition(direction, myField); 
     //Change Field Object to reflect changes
+    updateField(myField);
     myField.print();
     
 
