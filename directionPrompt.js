@@ -14,7 +14,7 @@ function directionPromise(fieldObject){
             
             if(validateResult===true & moveValidateResult === true){
                 console.log('congrats both validations passed')
-                resolve(Dir);
+                resolve(fieldObject.startPos);
             }else {
                 ask();
             }
@@ -32,4 +32,12 @@ async function directionPrompt(fieldObject){
     return direction;
 }
 
-module.exports=directionPrompt;
+
+function closeInput(){
+    readline.close();
+}
+
+module.exports = {
+    directionPrompt,
+    closeInput
+};

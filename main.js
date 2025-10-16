@@ -1,8 +1,8 @@
 const prompt = require('prompt-sync')({sigint: true});
 
 
-const directionPrompt = require('./directionPrompt');
-//const movePosition = require('/movePosition');
+const { directionPrompt, closeInput } = require('./directionPrompt');
+const movePosition = require('./movePosition');
 
 
 const hat = '^';
@@ -31,7 +31,9 @@ class Field {
   get field(){
     return this._field;
   }
-
+  get winPos(){
+    return this._winPos;
+  }
 
 
   print() {
@@ -52,12 +54,21 @@ const myField = new Field([
 );
 
 async function gameLoop(){
-    
+    let gameContinue = true;
     console.log(Intro);
     myField.print();
+    
+    while(gameContinue){
     const direction = await directionPrompt(myField);
-    console.log("its working" + direction);
-    console.log(myField.startPos);
+    const gameResults = movePosition(direction, myField); 
+    console.log(gameResults);
+
+      if (!gameResults) { // cleaner check
+            console.log("Game Over!");
+            closeInput();
+            break; // <-- stops loop immediately
+        }
+    }
 }
 
 gameLoop();
