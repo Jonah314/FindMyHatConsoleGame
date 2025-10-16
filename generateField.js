@@ -26,7 +26,7 @@ const pos2 = [0,1];
 const pos3 = [0,2];
 
 const pos4 = [1,0];
-const pos5 = [1.1];
+const pos5 = [1,1];
 const pos6 = [1,2];
 
 const pos7 = [2,0];
@@ -95,27 +95,24 @@ const hole2 = positionCase();
 const winPos = positionCase();    
     
     
-/*   
+  
 const myField = new Field([
-  ['*', '░', 'O'],
-  ['░', 'O', '░'],
-  ['░', '^', '░'],
+  ['░', '░', '░'],
+  ['░', '░', '░'],
+  ['░', '░', '░'],
 ],
 startPos,
 winPos,
 [hole1,hole2]
 );
-/*/
 
-const myField = new Field([
-  ['*', '░', 'O'],
-  ['░', 'O', '░'],
-  ['░', '^', '░'],
-],
-[0,0],
-[2,1],
-[[0,2],[1,1]]
-);
+
+
+
+myField.field[startPos[0]][startPos[1]] = '*';
+myField.field[winPos[0]][winPos[1]] = '^';
+myField.field[hole1[0]][hole1[1]] = 'O';
+myField.field[hole2[0]][hole2[1]] = 'O';
 
 return myField;
 }

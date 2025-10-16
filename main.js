@@ -10,15 +10,7 @@ const generateField = require('./generateField');
 
 const Intro = '               Welcome to Find My Hat !!!\n     Your Character is represented by the asterisk * Character \n     To Play the Game navigate to your hat ^ and Avoid falling into any holes O \n     To Move: \n          W = Up \n          A = Left \n          S = Down  \n          D = Right'  
 
-const myField = new Field([
-  ['*', '░', 'O'],
-  ['░', 'O', '░'],
-  ['░', '^', '░'],
-],
-[0,0],
-[2,1],
-[[0,2],[1,1]]
-);
+const myField = generateField();
 
 
 
